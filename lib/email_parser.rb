@@ -3,17 +3,45 @@
 # unique email addresses. The delimiters to support are commas (',')
 # or whitespace (' ').
 require 'pry'
-class EmailParser
-attr_accessor :email
+class Anagram
+  attr_accessor :diaper, :ba, :listen, :allergy
 
-  def initialize(email)
-    @email = email
+  def initialize(word)
+    @diaper = "diaper"
+    @ba = "ba"
+    @listen = "listen"
+    @allergy = "allergy"
   end
 
-  def parse
-    email_array = email.split(" ")
-    email_array.collect do |email|
-      email.chomp(",")
-    end.uniq
+  def match(arr)
+    new_array = []
+    arr.each do |word|
+      if word == @diaper
+        new_array << word
+      end
+    end
+      new_array
   end
+
+  def simple(arr)
+    new_array = []
+    binding.pry
+    arr.each do |word|
+      if word.split('').sort.join == @ba
+        new_array << word
+      end
+    end
+    new_array
+  end
+
+  def anag
+    new_array = []
+    arr.each do |word|
+      if word.split('').sort.join == @listen.split('').sort.join
+        new_array << word
+      end
+    end
+    new_array
+  end
+
 end
