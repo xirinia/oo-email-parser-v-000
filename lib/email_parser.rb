@@ -14,6 +14,7 @@ class Anagram
   end
 
   def match(arr)
+      binding.pry
     new_array = []
     arr.each do |word|
       if word == @diaper
@@ -25,7 +26,6 @@ class Anagram
 
   def simple(arr)
     new_array = []
-    binding.pry
     arr.each do |word|
       if word.split('').sort.join == @ba
         new_array << word
